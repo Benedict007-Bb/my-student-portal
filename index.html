@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini School Portal - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-form">
+    <h2>Login</h2>
+    <form onsubmit="return login()">
+      <input type="email" id="email" placeholder="Enter email" required>
+      <input type="password" id="password" placeholder="Enter password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    function login() {
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+
+      if(email === "" || password === "") {
+        alert("Please fill in all fields");
+        return false;
+      }
+
+      // Save email in browser storage
+      localStorage.setItem("studentEmail", email);
+
+      // Redirect to dashboard
+      window.location.href = "dashboard.html";
+      return false;
+    }
+  </script>
+
+</body>
+</html>
